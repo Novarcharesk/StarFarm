@@ -6,9 +6,14 @@ public class ShootingStar : MonoBehaviour
 {
     public float fallingSpeed = 5f; // Speed at which the shooting star falls
     public Vector2 diagonalDirection = new Vector2(-1f, -1f); // Diagonal direction of the falling motion
+    public Color starColor; // Color of the shooting star
+
+    private GrapeSpawner grapeSpawner; // Reference to the GrapeSpawner object
 
     private void Start()
     {
+        grapeSpawner = FindObjectOfType<GrapeSpawner>();
+
         // Start the falling motion
         StartFalling();
     }
@@ -22,6 +27,13 @@ public class ShootingStar : MonoBehaviour
 
         // Apply the initial velocity to the shooting star
         rb.velocity = initialVelocity;
+
+        // Set the color of the shooting star
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = starColor;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,6 +43,12 @@ public class ShootingStar : MonoBehaviour
         {
             // Stop the falling motion
             StopFalling();
+
+            // Spawn fruit with the matching color
+            if (grapeSpawner != null)
+            {
+                grapeSpawner.SpawnFruit(starColor);
+            }
         }
     }
 

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6837504200431447793}
   m_Layer: 0
   m_Name: Blue Star
-  m_TagString: Star
+  m_TagString: Collectible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallingSpeed: 0.5
   diagonalDirection: {x: -1, y: -1}
+  starColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &8287918441802952284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08a3ba14ac829e46af7aed2209cb54f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  starColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!50 &2852514573930827024
 Rigidbody2D:
   serializedVersion: 4

@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
                     if (grapeSpawner != null)
                     {
                         // Plant the held star
-                        grapeSpawner.GrowGrape(heldStar.GetComponent<Collectible>().starColor);
+                        grapeSpawner.SpawnFruit(heldStar.GetComponent<Collectible>().starColor);
                         Destroy(heldStar);
                         heldStar = null; // Clear the held star reference
                         break;

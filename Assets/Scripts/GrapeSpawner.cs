@@ -14,6 +14,14 @@ public class GrapeSpawner : MonoBehaviour
         {
             GameObject fruitPrefab = fruitPrefabs[colorIndex];
             GameObject fruit = Instantiate(fruitPrefab, spawnPoint.position, spawnPoint.rotation);
+
+            // Set the color of the spawned fruit to match the color of the star
+            SpriteRenderer fruitRenderer = fruit.GetComponent<SpriteRenderer>();
+            if (fruitRenderer != null)
+            {
+                fruitRenderer.color = fruitColor;
+            }
+            
             // Set any additional properties or logic for the spawned fruit
         }
     }
