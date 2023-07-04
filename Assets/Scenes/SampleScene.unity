@@ -3261,7 +3261,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: 228738b9c6492c942a2add8f841b26e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 2
   m_Size: {x: 7.179896, y: 0.18}
   m_AdaptiveModeThreshold: 0.5
@@ -8712,7 +8712,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: 228738b9c6492c942a2add8f841b26e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 1
+  m_FlipY: 0
   m_DrawMode: 2
   m_Size: {x: 7.179896, y: 0.18}
   m_AdaptiveModeThreshold: 0.5
@@ -17178,6 +17178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8292484411761004529, guid: b589749d5f28b4a449eff6fac05ea3cf, type: 3}
+    - {fileID: 4376819143103679492, guid: b589749d5f28b4a449eff6fac05ea3cf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b589749d5f28b4a449eff6fac05ea3cf, type: 3}
 --- !u!1 &1046291070
 GameObject:
