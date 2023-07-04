@@ -4,16 +4,30 @@ using UnityEngine;
 
 public class GrapeSpawner : MonoBehaviour
 {
-    public GameObject prefab; // Single prefab to spawn
-    public Transform spawnPoint; // Position to spawn the prefab
+    public GameObject[] fruitPrefabs; // Array of fruit prefabs in matching order of colors
+    public Transform spawnPoint; // Position to spawn the fruit
 
-    public void SpawnPrefab()
+    public void SpawnFruit(Color fruitColor)
     {
-        Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
+        int colorIndex = GetColorIndex(fruitColor);
+        if (colorIndex != -1 && colorIndex < fruitPrefabs.Length)
+        {
+            GameObject fruitPrefab = fruitPrefabs[colorIndex];
+            GameObject fruit = Instantiate(fruitPrefab, spawnPoint.position, spawnPoint.rotation);
+            // Set any additional properties or logic for the spawned fruit
+        }
     }
 
-    public void GrowGrape()
+    private int GetColorIndex(Color color)
     {
-        SpawnPrefab();
+        for (int i = 0; i < fruitPrefabs.Length; i++)
+        {
+            SpriteRenderer spriteRenderer = fruitPrefabs[i].GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null && spriteRenderer.color == color)
+            {
+                return i;
+            }
+        }
+        return -1;
     }
 }

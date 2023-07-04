@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.CompareTag("Player"))
-    //    {
-    //        PlayerController playerController = collision.GetComponent<PlayerController>();
-    //        if (playerController != null)
-    //        {
-    //            playerController.CollectStar(gameObject);
-    //        }
-    //    }
-    //}
+    public Color starColor;
 
-    public void Collect()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        if (collision.CompareTag("Player"))
+        {
+            PlayerController playerController = collision.GetComponent<PlayerController>();
+            if (playerController != null)
+            {
+                playerController.Collect(gameObject);
+                Destroy(gameObject);
+            }
+        }
     }
 }
