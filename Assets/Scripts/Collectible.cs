@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
-    public Color starColor;
+    public StarColor starColor; // Color of the collectible star
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        PlayerController player = collision.GetComponent<PlayerController>();
+        if (player != null)
         {
-            PlayerController playerController = collision.GetComponent<PlayerController>();
-            if (playerController != null)
-            {
-                playerController.Collect(gameObject);
-                Destroy(gameObject);
-            }
+            player.Collect(starColor);
+            Destroy(gameObject);
         }
     }
 }

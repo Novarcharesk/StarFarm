@@ -2,14 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum StarColor
+{
+    Red,
+    Green,
+    Blue,
+    Yellow
+}
+
 public class GrapeSpawner : MonoBehaviour
 {
     public GameObject[] fruitPrefabs; // Array of fruit prefabs in matching order of colors
     public Transform spawnPoint; // Position to spawn the fruit
 
-    public void SpawnFruit(Color fruitColor)
+    public void SpawnFruit(StarColor starColor)
     {
-        int colorIndex = GetColorIndex(fruitColor);
+        int colorIndex = (int)starColor;
         if (colorIndex != -1 && colorIndex < fruitPrefabs.Length)
         {
             GameObject fruitPrefab = fruitPrefabs[colorIndex];
@@ -19,23 +27,27 @@ public class GrapeSpawner : MonoBehaviour
             SpriteRenderer fruitRenderer = fruit.GetComponent<SpriteRenderer>();
             if (fruitRenderer != null)
             {
-                fruitRenderer.color = fruitColor;
+                fruitRenderer.color = GetColorFromStarColor(starColor);
             }
-            
+
             // Set any additional properties or logic for the spawned fruit
         }
     }
 
-    private int GetColorIndex(Color color)
+    private Color GetColorFromStarColor(StarColor starColor)
     {
-        for (int i = 0; i < fruitPrefabs.Length; i++)
+        switch (starColor)
         {
-            SpriteRenderer spriteRenderer = fruitPrefabs[i].GetComponent<SpriteRenderer>();
-            if (spriteRenderer != null && spriteRenderer.color == color)
-            {
-                return i;
-            }
+            case StarColor.Red:
+                return Color.red;
+            case StarColor.Green:
+                return Color.green;
+            case StarColor.Blue:
+                return Color.blue;
+            case StarColor.Yellow:
+                return Color.yellow;
+            default:
+                return Color.white;
         }
-        return -1;
     }
 }

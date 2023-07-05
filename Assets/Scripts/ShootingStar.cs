@@ -44,7 +44,8 @@ public class ShootingStar : MonoBehaviour
                 if (spriteRenderer != null)
                 {
                     Color starColor = spriteRenderer.color;
-                    grapeSpawner.SpawnFruit(starColor);
+                    StarColor convertedColor = GetStarColorFromColor(starColor); // Convert the Color to StarColor
+                    grapeSpawner.SpawnFruit(convertedColor); // Pass the converted StarColor
                 }
             }
         }
@@ -57,5 +58,31 @@ public class ShootingStar : MonoBehaviour
         // Disable the Rigidbody2D component to stop further movement
         rb.velocity = Vector2.zero;
         rb.bodyType = RigidbodyType2D.Static;
+    }
+
+    private StarColor GetStarColorFromColor(Color color) // Helper method to convert Color to StarColor
+    {
+        if (color == Color.red)
+            return StarColor.Red;
+        else if (color == Color.green)
+            return StarColor.Green;
+        else if (color == Color.blue)
+            return StarColor.Blue;
+        else if (color == Color.yellow)
+            return StarColor.Yellow;
+        else
+            return StarColor.Red;
+    }
+
+    public StarColor GetStarColor()
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            Color starColor = spriteRenderer.color;
+            StarColor convertedColor = GetStarColorFromColor(starColor);
+            return convertedColor;
+        }
+        return StarColor.Red; // Default color if no valid color found
     }
 }
