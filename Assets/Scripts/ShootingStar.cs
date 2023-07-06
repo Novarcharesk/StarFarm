@@ -7,6 +7,7 @@ public class ShootingStar : MonoBehaviour
 {
     public float fallingSpeed = 5f;
     public Vector2 diagonalDirection = new Vector2(-1f, -1f);
+    public StarColor starColor = StarColor.Red;
 
     private GrapeSpawner grapeSpawner;
 
@@ -77,13 +78,6 @@ public class ShootingStar : MonoBehaviour
 
     public StarColor GetStarColor()
     {
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
-        {
-            Color starColor = spriteRenderer.color;
-            StarColor convertedColor = GetStarColorFromColor(starColor);
-            return convertedColor;
-        }
-        return StarColor.Red; // Default color if no valid color found
+        return starColor;
     }
 }

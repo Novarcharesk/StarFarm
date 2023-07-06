@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +16,7 @@ public enum StarColor
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
-    public Text[] starCountTexts;
+    public TextMeshProUGUI[] starCountTexts;
     private Rigidbody2D rb;
     private int[] starCount;
 
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         starCount = new int[System.Enum.GetValues(typeof(StarColor)).Length];
+        UpdateStarCountUI();
     }
 
     private void Update()
@@ -35,20 +37,21 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Star"))
-        {
-            ShootingStar shootingStar = collision.GetComponent<ShootingStar>();
-            if (shootingStar != null)
-            {
-                StarColor collectedColor = shootingStar.GetStarColor();
-                Collect(collectedColor);
-                Destroy(collision.gameObject);
-            }
-        }
+        //if (collision.CompareTag("Star"))
+        //{
+        //    ShootingStar shootingStar = collision.GetComponent<ShootingStar>();
+        //    if (shootingStar != null)
+        //    {
+        //        StarColor collectedColor = shootingStar.GetStarColor();
+        //        Collect(collectedColor);
+        //        Destroy(collision.gameObject);
+        //    }
+        //}
     }
 
     public void Collect(StarColor color)
     {
+        Debug.Log("Collected " + color.ToString() + " star");
         IncreaseStarCount(color);
         UpdateStarCountUI();
     }
@@ -68,7 +71,7 @@ public class PlayerController : MonoBehaviour
         {
             if (i >= 0 && i < starCount.Length)
             {
-                starCountTexts[i].text = starCount[i].ToString();
+                starCountTexts[i].text = "= " + starCount[i].ToString();
             }
         }
     }

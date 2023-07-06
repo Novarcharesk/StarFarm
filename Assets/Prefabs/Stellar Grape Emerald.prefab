@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5689591494278536355}
   - component: {fileID: 5566625382554900132}
-  - component: {fileID: 4164013920140020557}
   m_Layer: 0
   m_Name: Stellar Grape Emerald
   m_TagString: Untagged
@@ -85,16 +84,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4164013920140020557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7337135156378025315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adeea49e76b6cc2429972fe2cb617553, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seedColor: {r: 0, g: 0.9960785, b: 0.21960786, a: 1}
