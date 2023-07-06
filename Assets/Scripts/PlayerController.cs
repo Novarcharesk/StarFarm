@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum StarColor
+{
+    Red,
+    Green,
+    Blue,
+    Yellow
+}
+
+
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;

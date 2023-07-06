@@ -8542,8 +8542,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 504113849}
-  - component: {fileID: 504113851}
   - component: {fileID: 504113852}
+  - component: {fileID: 504113851}
   - component: {fileID: 504113850}
   m_Layer: 5
   m_Name: Inventory Slot (3)
@@ -33232,8 +33232,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1943476608}
-  - component: {fileID: 1943476610}
   - component: {fileID: 1943476611}
+  - component: {fileID: 1943476610}
   - component: {fileID: 1943476609}
   m_Layer: 5
   m_Name: Inventory Slot (2)
@@ -36613,8 +36613,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2133765657}
-  - component: {fileID: 2133765659}
   - component: {fileID: 2133765660}
+  - component: {fileID: 2133765659}
   - component: {fileID: 2133765658}
   m_Layer: 5
   m_Name: Inventory Slot (1)

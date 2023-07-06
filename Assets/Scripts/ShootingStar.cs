@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ShootingStar : MonoBehaviour
 {
-    public float fallingSpeed = 5f; // Speed at which the shooting star falls
-    public Vector2 diagonalDirection = new Vector2(-1f, -1f); // Diagonal direction of the falling motion
+    public float fallingSpeed = 5f;
+    public Vector2 diagonalDirection = new Vector2(-1f, -1f);
 
-    private GrapeSpawner grapeSpawner; // Reference to the GrapeSpawner object
+    private GrapeSpawner grapeSpawner;
 
     private void Start()
     {
@@ -30,7 +31,6 @@ public class ShootingStar : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Check if the shooting star has reached the designated area
         if (collision.CompareTag("DesignatedArea"))
         {
             // Stop the falling motion
@@ -44,8 +44,8 @@ public class ShootingStar : MonoBehaviour
                 if (spriteRenderer != null)
                 {
                     Color starColor = spriteRenderer.color;
-                    StarColor convertedColor = GetStarColorFromColor(starColor); // Convert the Color to StarColor
-                    grapeSpawner.SpawnFruit(convertedColor); // Pass the converted StarColor
+                    StarColor convertedColor = GetStarColorFromColor(starColor);
+                    grapeSpawner.SpawnFruit(convertedColor);
                 }
             }
         }
@@ -60,10 +60,11 @@ public class ShootingStar : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Static;
     }
 
-    private StarColor GetStarColorFromColor(Color color) // Helper method to convert Color to StarColor
+    private StarColor GetStarColorFromColor(Color color)
     {
         if (color == Color.red)
             return StarColor.Red;
+
         else if (color == Color.green)
             return StarColor.Green;
         else if (color == Color.blue)

@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GrapeSpawner : MonoBehaviour
 {
     public GameObject[] fruitPrefabs; // Array of fruit prefabs in matching order of colors
     public Transform spawnPoint; // Position to spawn the fruit
 
-    public void SpawnFruit(StarColor fruitColor) // Update the parameter type to StarColor
+    public void SpawnFruit(StarColor fruitColor)
     {
-        int colorIndex = (int)fruitColor; // Cast the enum to an integer index
+        int colorIndex = (int)fruitColor;
         if (colorIndex != -1 && colorIndex < fruitPrefabs.Length)
         {
             GameObject fruitPrefab = fruitPrefabs[colorIndex];
@@ -19,19 +20,19 @@ public class GrapeSpawner : MonoBehaviour
             SpriteRenderer fruitRenderer = fruit.GetComponent<SpriteRenderer>();
             if (fruitRenderer != null)
             {
-                fruitRenderer.color = GetColorFromStarColor(fruitColor); // Use a helper method to convert the StarColor to Color
+                fruitRenderer.color = GetColorFromStarColor(fruitColor);
             }
 
             // Set any additional properties or logic for the spawned fruit
         }
     }
 
-    private int GetColorIndex(StarColor color) // Update the parameter type to StarColor
+    private int GetColorIndex(StarColor color)
     {
         for (int i = 0; i < fruitPrefabs.Length; i++)
         {
             SpriteRenderer spriteRenderer = fruitPrefabs[i].GetComponent<SpriteRenderer>();
-            if (spriteRenderer != null && spriteRenderer.color == GetColorFromStarColor(color)) // Use the helper method to compare colors
+            if (spriteRenderer != null && spriteRenderer.color == GetColorFromStarColor(color))
             {
                 return i;
             }
@@ -39,7 +40,7 @@ public class GrapeSpawner : MonoBehaviour
         return -1;
     }
 
-    private Color GetColorFromStarColor(StarColor starColor) // Helper method to convert StarColor to Color
+    private Color GetColorFromStarColor(StarColor starColor)
     {
         switch (starColor)
         {

@@ -7,14 +7,6 @@ public class InventoryUI : MonoBehaviour
     public List<GameObject> inventorySlots; // List of inventory slot game objects
     private List<Text> starCountTexts; // List of star count Text components
 
-    public enum StarColor
-    {
-        Red,
-        Green,
-        Blue,
-        Yellow
-    }
-
     private void Start()
     {
         // Initialize the starCountTexts list
