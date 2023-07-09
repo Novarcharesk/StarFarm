@@ -36,19 +36,6 @@ public class ShootingStar : MonoBehaviour
         {
             // Stop the falling motion
             StopFalling();
-
-            // Spawn fruit with the matching color
-            if (grapeSpawner != null)
-            {
-                // Get the color of the shooting star prefab
-                SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-                if (spriteRenderer != null)
-                {
-                    Color starColor = spriteRenderer.color;
-                    StarColor convertedColor = GetStarColorFromColor(starColor);
-                    grapeSpawner.SpawnFruit(convertedColor);
-                }
-            }
         }
     }
 

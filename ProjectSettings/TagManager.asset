@@ -8,6 +8,7 @@ TagManager:
   - DesignatedArea
   - Star
   - Collectible
+  - Grow
   layers:
   - Default
   - TransparentFX
