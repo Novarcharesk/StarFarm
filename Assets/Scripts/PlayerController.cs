@@ -12,7 +12,6 @@ public enum StarColor
     Yellow
 }
 
-
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
@@ -23,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private int[] starCount;
     private int[] grapeCount;
+    private bool isNearTradeArea = false;
 
     private void Start()
     {
@@ -39,47 +39,58 @@ public class PlayerController : MonoBehaviour
         float moveY = Input.GetAxis("Vertical");
         Vector2 movement = new Vector2(moveX, moveY);
         rb.velocity = movement * speed;
+
+        if (isNearTradeArea && Input.GetKeyDown(KeyCode.Space))
+        {
+            // Open the trade selection menu
+            OpenTradeSelection();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (collision.CompareTag("Star"))
-        //{
-        //    ShootingStar shootingStar = collision.GetComponent<ShootingStar>();
-        //    if (shootingStar != null)
-        //    {
-        //        StarColor collectedColor = shootingStar.GetStarColor();
-        //        Collect(collectedColor);
-        //        Destroy(collision.gameObject);
-        //    }
-        //}
-
         if (collision.CompareTag("Grow"))
         {
-            if (HasInventoryItem(StarColor.Red))
-            {
-                Instantiate(grapesToSpawn[0], locationsToSpawn[0].position, Quaternion.identity);
-                ResetStarCount(StarColor.Red);
-                UpdateStarCountUI();
-            }
-            if (HasInventoryItem(StarColor.Green))
-            {
-                Instantiate(grapesToSpawn[1], locationsToSpawn[1].position, Quaternion.identity);
-                ResetStarCount(StarColor.Green);
-                UpdateStarCountUI();
-            }
-            if (HasInventoryItem(StarColor.Blue))
-            {
-                Instantiate(grapesToSpawn[2], locationsToSpawn[2].position, Quaternion.identity);
-                ResetStarCount(StarColor.Blue);
-                UpdateStarCountUI();
-            }
-            if (HasInventoryItem(StarColor.Yellow))
-            {
-                Instantiate(grapesToSpawn[3], locationsToSpawn[3].position, Quaternion.identity);
-                ResetStarCount(StarColor.Yellow);
-                UpdateStarCountUI();
-            }
+            isNearTradeArea = true;
+            // Display a prompt or indication to the player
+            // that they can press the spacebar to open the trade selection
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Grow"))
+        {
+            isNearTradeArea = false;
+            // Hide or remove the prompt or indication to the player
+        }
+    }
+
+    private void OpenTradeSelection()
+    {
+        if (HasInventoryItem(StarColor.Red))
+        {
+            Instantiate(grapesToSpawn[0], locationsToSpawn[0].position, Quaternion.identity);
+            ResetStarCount(StarColor.Red);
+            UpdateStarCountUI();
+        }
+        if (HasInventoryItem(StarColor.Green))
+        {
+            Instantiate(grapesToSpawn[1], locationsToSpawn[1].position, Quaternion.identity);
+            ResetStarCount(StarColor.Green);
+            UpdateStarCountUI();
+        }
+        if (HasInventoryItem(StarColor.Blue))
+        {
+            Instantiate(grapesToSpawn[2], locationsToSpawn[2].position, Quaternion.identity);
+            ResetStarCount(StarColor.Blue);
+            UpdateStarCountUI();
+        }
+        if (HasInventoryItem(StarColor.Yellow))
+        {
+            Instantiate(grapesToSpawn[3], locationsToSpawn[3].position, Quaternion.identity);
+            ResetStarCount(StarColor.Yellow);
+            UpdateStarCountUI();
         }
     }
 
