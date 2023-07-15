@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class ShopTrigger : MonoBehaviour
 {
     public Canvas shopCanvas;
-    public Button resumeButton;
     public Button leaveButton;
 
     private bool playerInsideTrigger = false;
@@ -25,11 +24,7 @@ public class ShopTrigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerInsideTrigger = false;
-            shopCanvas.enabled = false;
-            if (isGamePaused)
-            {
-                ResumeGame();
-            }
+            CloseShop();
         }
     }
 
@@ -57,7 +52,7 @@ public class ShopTrigger : MonoBehaviour
         isGamePaused = false;
     }
 
-    public void OnResumeButtonClicked()
+    private void CloseShop()
     {
         shopCanvas.enabled = false;
         ResumeGame();
@@ -65,8 +60,7 @@ public class ShopTrigger : MonoBehaviour
 
     public void OnLeaveButtonClicked()
     {
-        shopCanvas.enabled = false;
-        ResumeGame();
+        CloseShop();
         // Additional logic for leaving the shop
     }
 }
