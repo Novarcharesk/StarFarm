@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +6,7 @@ using UnityEngine.UI;
 public class StoreItem
 {
     public string itemName;
-    public Sprite itemImage;
+    public Image itemImage;
     public int itemPrice;
     public GameObject itemPrefab;
 }
@@ -35,11 +34,11 @@ public class StoreManager : MonoBehaviour
             Button itemButton = buttonObj.GetComponent<Button>();
 
             // Set the button's label and image based on the store item
-            Text buttonText = buttonObj.GetComponentInChildren<Text>();
-            Image buttonImage = buttonObj.GetComponent<Image>();
+            Text buttonText = itemButton.GetComponentInChildren<Text>();
+            Image buttonImage = itemButton.GetComponent<Image>();
 
             buttonText.text = item.itemName;
-            buttonImage.sprite = item.itemImage;
+            buttonImage.sprite = item.itemImage.sprite; // Assign the sprite from the Image component
 
             // Add an onclick listener to the button to handle the purchase
             itemButton.onClick.AddListener(() => PurchaseItem(item));

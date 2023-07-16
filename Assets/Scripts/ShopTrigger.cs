@@ -61,6 +61,5 @@ public class ShopTrigger : MonoBehaviour
     public void OnLeaveButtonClicked()
     {
         CloseShop();
-        // Additional logic for leaving the shop
     }
 }

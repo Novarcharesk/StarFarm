@@ -29995,7 +29995,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1711683272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30090,9 +30090,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1502121589b895848a7a7feebf3b113f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  storePanel: {fileID: 0}
-  itemButtonPrefab: {fileID: 0}
-  buttonContainer: {fileID: 0}
+  storePanel: {fileID: 1711683271}
+  itemButtonPrefab: {fileID: 3025046469100648920, guid: 5f14a0e9ac3b38749a103b499c4bc6d0, type: 3}
+  buttonContainer: {fileID: 1594761141}
   storeItems:
   - itemName: Space Tomato
     itemImage: {fileID: 21300000, guid: 760cab8e399535349b6703c233b93dcd, type: 3}
@@ -33228,7 +33228,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1860478930
 GameObject:
@@ -33412,7 +33412,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopCanvas: {fileID: 216883984}
-  resumeButton: {fileID: 0}
   leaveButton: {fileID: 0}
 --- !u!61 &1862566919
 BoxCollider2D:
@@ -35133,7 +35132,7 @@ Transform:
   - {fileID: 216883981}
   - {fileID: 1711683275}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1947098604
 GameObject:
@@ -38610,7 +38609,7 @@ Transform:
   m_Children:
   - {fileID: 2126261724}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2136283349
 GameObject:
