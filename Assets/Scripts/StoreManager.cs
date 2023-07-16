@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class StoreItem
 {
     public string itemName;
-    public Image itemImage;
+    public Sprite itemImage;
     public int itemPrice;
     public GameObject itemPrefab;
 }
@@ -38,7 +38,7 @@ public class StoreManager : MonoBehaviour
             Image buttonImage = itemButton.GetComponent<Image>();
 
             buttonText.text = item.itemName;
-            buttonImage.sprite = item.itemImage.sprite; // Assign the sprite from the Image component
+            buttonImage.sprite = item.itemImage; // Assign the sprite from the Image component
 
             // Add an onclick listener to the button to handle the purchase
             itemButton.onClick.AddListener(() => PurchaseItem(item));

@@ -21,7 +21,9 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI[] grapeCountTexts;
     private Rigidbody2D rb;
     private int[] starCount;
-    private int[] grapeCount;
+    public int[] grapeCount;
+    public int solRuble;
+    public TextMeshProUGUI solRubleText;
     private bool isNearTradeArea = false;
 
     private void Start()
@@ -108,6 +110,28 @@ public class PlayerController : MonoBehaviour
         UpdateGrapeCountUI();
     }
 
+    public void CollectsolRuble(int ammount)
+    {
+        solRuble += ammount;
+        UpdatesolRubleUI();
+    }
+
+    public void SpendsolRuble(int ammount)
+    {
+        if (solRuble - ammount < 0)
+        {
+            return;
+        }
+        solRuble -= ammount;
+        UpdatesolRubleUI();
+    }
+
+    private void UpdatesolRubleUI()
+    {
+        solRubleText.text = "= " + solRuble.ToString();
+    }
+
+
     private void IncreaseStarCount(StarColor color)
     {
         int colorIndex = (int)color;
@@ -126,7 +150,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void ResetStarCount(StarColor color)
+    public void ResetStarCount(StarColor color)
     {
         int colorIndex = (int)color;
         if (colorIndex >= 0 && colorIndex < starCount.Length)

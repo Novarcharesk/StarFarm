@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ShopTrigger : MonoBehaviour
 {
-    public Canvas shopCanvas;
+    public GameObject shopCanvas;
     public Button leaveButton;
 
     private bool playerInsideTrigger = false;
@@ -36,7 +36,7 @@ public class ShopTrigger : MonoBehaviour
             {
                 PauseGame();
             }
-            shopCanvas.enabled = true;
+            shopCanvas.SetActive(true);
         }
     }
 
@@ -52,9 +52,9 @@ public class ShopTrigger : MonoBehaviour
         isGamePaused = false;
     }
 
-    private void CloseShop()
+    public void CloseShop()
     {
-        shopCanvas.enabled = false;
+        shopCanvas.SetActive(false);
         ResumeGame();
     }
 
