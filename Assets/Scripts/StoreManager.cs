@@ -22,7 +22,7 @@ public class StoreManager : MonoBehaviour
     private void Start()
     {
         // Populate the store UI with buttons for each store item
-        PopulateStoreUI();
+        //PopulateStoreUI();
     }
 
     private void PopulateStoreUI()

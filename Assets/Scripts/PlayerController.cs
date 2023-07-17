@@ -159,7 +159,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void UpdateStarCountUI()
+    public void ResetGrapeCount(StarColor color)
+    {
+        int colorIndex = (int)color;
+        if (colorIndex >= 0 && colorIndex < grapeCount.Length)
+        {
+            grapeCount[colorIndex] = 0;
+        }
+    }
+
+    public void UpdateStarCountUI()
     {
         for (int i = 0; i < starCountTexts.Length; i++)
         {
@@ -170,7 +179,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void UpdateGrapeCountUI()
+    public void UpdateGrapeCountUI()
     {
         for (int i = 0; i < grapeCountTexts.Length; i++)
         {

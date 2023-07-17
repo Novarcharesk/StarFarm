@@ -13,27 +13,31 @@ public class SellValue : MonoBehaviour
     {
         int current = playerController.grapeCount[0];
         playerController.CollectsolRuble(7 * current);
-        playerController.ResetStarCount(StarColor.Red);
+        playerController.ResetGrapeCount(StarColor.Red);
+        playerController.UpdateGrapeCountUI();
     }
     public void SellBlueGrape()
     {
         int current = playerController.grapeCount[2];
         playerController.CollectsolRuble(5 * current);
-        playerController.ResetStarCount(StarColor.Blue);
+        playerController.ResetGrapeCount(StarColor.Blue);
+        playerController.UpdateGrapeCountUI();
     }
 
     public void SellGreenGrape()
     {
         int current = playerController.grapeCount[1];
         playerController.CollectsolRuble(3 * current);
-        playerController.ResetStarCount(StarColor.Green);
+        playerController.ResetGrapeCount(StarColor.Green);
+        playerController.UpdateGrapeCountUI();
     }
 
     public void SellYellowGrape()
     {
         int current = playerController.grapeCount[3];
         playerController.CollectsolRuble(10 * current);
-        playerController.ResetStarCount(StarColor.Yellow);
+        playerController.ResetGrapeCount(StarColor.Yellow);
+        playerController.UpdateGrapeCountUI();
     }
 
     public void BuyTomato()
