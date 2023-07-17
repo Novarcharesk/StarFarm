@@ -23,7 +23,11 @@ public class PlayerController : MonoBehaviour
     private int[] starCount;
     public int[] grapeCount;
     public int solRuble;
+    public int[] groceries;
     public TextMeshProUGUI solRubleText;
+    public TextMeshProUGUI tomatoText;
+    public TextMeshProUGUI pumpkinText;
+    public TextMeshProUGUI cornText;
     private bool isNearTradeArea = false;
 
     private void Start()
@@ -116,7 +120,7 @@ public class PlayerController : MonoBehaviour
         UpdatesolRubleUI();
     }
 
-    public void SpendsolRuble(int ammount)
+    public void SpendsolRuble(int ammount, int index)
     {
         if (solRuble - ammount < 0)
         {
@@ -124,11 +128,20 @@ public class PlayerController : MonoBehaviour
         }
         solRuble -= ammount;
         UpdatesolRubleUI();
+        groceries[index] += 1;
+        UpdateGroceriesUI();
     }
 
     private void UpdatesolRubleUI()
     {
         solRubleText.text = "= " + solRuble.ToString();
+    }
+
+    private void UpdateGroceriesUI()
+    {
+        tomatoText.text = "= " + groceries[0].ToString();
+        pumpkinText.text = "= " + groceries[1].ToString();
+        cornText.text = "= " + groceries[2].ToString();
     }
 
 

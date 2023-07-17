@@ -42,16 +42,16 @@ public class SellValue : MonoBehaviour
 
     public void BuyTomato()
     {
-        playerController.SpendsolRuble(15);
+        playerController.SpendsolRuble(15, 0);
     }
     public void BuyCarrot()
     {
-        playerController.SpendsolRuble(30);
+        playerController.SpendsolRuble(30, 1);
     }
 
     public void BuyCorn()
     {
-        playerController.SpendsolRuble(50);
+        playerController.SpendsolRuble(50, 2);
     }
 
 }
