@@ -2,50 +2,71 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Diagnostics;
 
 public class Timer : MonoBehaviour
 {
     float currentTime = 0f;
-    float startingTime = 90f;
+    float startingTime = 180.4f;
 
-    public TMP_Text countdownText;
-    public TMP_Text gameOverText;
+    public GameObject gameOverTimeUI;
     public GameObject gameOverUI;
 
-    private string currentSceneName;
+    public string newGameScene;
 
-    // Start is called before the first frame update
+    [SerializeField] TMP_Text countdownText;
+
+    public AudioSource audioSource;
+    public AudioClip timer;
+
+
     void Start()
     {
         currentTime = startingTime;
-        currentSceneName = SceneManager.GetActiveScene().name;
+        audioSource = GetComponent<AudioSource>();
+
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         currentTime -= Time.deltaTime;
         countdownText.text = currentTime.ToString("0");
 
+        if (currentTime <= 60.5)
+        {
+            countdownText.color = Color.red;
+        }
+
         if (currentTime < 0)
         {
-            Debug.Log("GameOver!");
             Time.timeScale = 0f;
-            gameOverUI.SetActive(true);
-            gameOverText.gameObject.SetActive(true);
+            gameOverTimeUI.SetActive(true);
+
         }
 
-        if (gameOverUI.activeSelf && Input.GetKeyDown(KeyCode.R))
+        if (gameOverTimeUI.activeSelf && Input.GetKeyDown(KeyCode.R))
         {
             Time.timeScale = 1f;
-            SceneManager.LoadScene(currentSceneName);
+            Scene scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene("SampleScene");
         }
 
-        if (gameOverUI.activeSelf && Input.GetKeyDown(KeyCode.Space))
-        {
-            Time.timeScale = 1f;
-            SceneManager.LoadScene(currentSceneName);
-        }
+
     }
+
+    public void TimerSound()
+    {
+        audioSource.clip = timer;
+        audioSource.Play();
+
+        //if (Time.timeScale = 0f)
+        //{
+        //Destroy(gameObject);
+        //}
+
+    }
+
 }

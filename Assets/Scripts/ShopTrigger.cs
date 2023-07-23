@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ShopTrigger : MonoBehaviour
 {
+    public SoundManager soundManager;
+
     public GameObject shopCanvas;
     public Button leaveButton;
 
@@ -16,6 +18,7 @@ public class ShopTrigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerInsideTrigger = true;
+            soundManager.StoreJingleSound();
         }
     }
 
@@ -37,6 +40,8 @@ public class ShopTrigger : MonoBehaviour
                 PauseGame();
             }
             shopCanvas.SetActive(true);
+            soundManager.StoreJingleSound();
+
         }
     }
 
